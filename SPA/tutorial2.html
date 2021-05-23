@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Webpage Title -->
+    <title>Tutorial 2</title>
+    
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/favicon.svg">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <a class="navbar-brand logo-text page-scroll" href="index.html">Diseño Multimedia</a>
+
+            <!-- Image Logo -->
+            <!-- a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="ex-header bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>Baymax con CSS</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-fluid mt-5 mb-3" src="images/article-details-large.jpg" alt="alternative">
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h2 class="mb-3">Elemento unico </h2>
+                    <p>Haciendo uso de pseudo-elementos, podremos crear las partes de la cara usando un elemento HTML.</p>
+                    <pre>
+                        <code>
+                            <div class="baymax"></div>"
+                        </code>
+                    </pre>
+                    <h2 class="mb-3">Estilismo </h2>
+                    <p>Para preparar el escenario, agregaremos un degradado sutil a la pantalla para que parezca 
+                        una cabeza blanca curva. Para esto usaremos un degradado radial en el body</p>
+                    <pre>
+                        <code>
+                            body {
+                                background: radial-gradient(circle at center, #fff, #fff 50%, #aaa);
+                                background-size: 100% 100%;
+                                background-repeat: no-repeat;
+                                height: 100vh;
+                              }
+                        </code>
+                    </pre>
+                    <p>A continuación colocamos el rostro en el centro de la página. La boca es una línea negra simple, y la crearemos usando un borde.</p>
+                    <pre>
+                        <code>
+                            .baymax {
+                                border-bottom: 1.5em solid #000;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                width: 50%;
+                                transform: translate(-50%, -40%);
+                              }
+                        </code>
+                    </pre>
+                    <pre>
+                        <code>
+                            ul, li {
+                                padding: 0;
+                                margin: 0;
+                                list-style: none inside;
+                            }
+                            ul.slider {
+                                position:relative; /*Necesitamos que el ul sea relativo*/
+                            }
+                            ul.slider li {
+                                opacity: 0; /*Ocultamos todos los &lt;li&gt;*/
+                                transition: opacity .5s;
+                                position: absolute; /*Posicionamos en absoluto los &lt;li&gt;*/
+                                left: 0px;
+                                top: 0px;
+                                margin:50px;
+                                padding:50px;
+                                border:2px solid red;
+                                background:#fff;
+                            }
+                            ul.slider li:first-child {
+                                opacity: 1; /*Mostramos el primer &lt;li&gt;*/
+                            }
+                        </code>
+                    </pre>
+                    <p>
+                        La primera propiedad establece un borde negro de ancho 1.5em.  Luego posiciona la línea usando posicionamiento absoluto,
+                         empujándola hacia abajo 50% y frente a la izquierda 50%. Estos valores del 50% se relacionan con el tamaño del body elemento contenedor()
+                         El problema que tenemos ahora es que el elemento comienza a la mitad de la pantalla. Está descentrado.
+                         Para compensar esto, usamos una transformación para tirar del elemento a la izquierda el 50% de su ancho y hacia arriba el 40% de su ancho.
+                    </p>
+                    <h2 class="mb-3">Añadiendo los ojos </h2>
+                    <p>
+                        Haremos uso de las before y after los pseudo-elementos a añadir a los ojos de la cara. Esto no necesitará HTML adicional y es completamente 
+                        manejado por CSS.
+                    </p>
+                    <pre>
+                        <code>
+                            .baymax::before {
+                                background: #000;
+                                border-radius: 50%;
+                                content: "";
+                                position: absolute;
+                                width: 12em;
+                                height: 12em;
+                                left: -9em;
+                                top: -6em;
+                                transform: skewX(-4deg);
+                              }
+                              
+                              .baymax::after {
+                                background: #000;
+                                border-radius: 50%;
+                                content: "";
+                                position: absolute;
+                                width: 12em;
+                                height: 12em;
+                                right: -9em;
+                                top: -6em;
+                                transform: skewX(4deg);
+                              }
+                        </code>
+                    </pre>
+                    <p>
+                        Cada uno de estos pseudoelementos tiene un fondo negro y un radio de borde del 50% para hacerlos circulares. Cada uno se coloca al 
+                        final de la boca y, por último, tiene una skew transformación para que parezca que están un poco inclinados hacia atrás. El resultado
+                         debería verse así:
+                    </p>
+                    <h2 class="mb-3">Batería baja </h2>
+                    <p>
+                        Hay una escena divertida en la película donde la batería de Baymax se agota. Se tambalea y sus párpados se caen. Podemos usar una 
+                        combinación de degradados de fondo y animación para crear el efecto.
+
+                        Primero queremos darle al fondo dos colores. Negro para la parte del ojo que está abierta y blanco para el párpado. La parte blanca 
+                        debe colocarse fuera de los ojos al principio, luego la animaremos para que los párpados se caigan.
+
+                    </p>
+                    <pre>
+                        <code>
+                            .baymax::before {
+                                background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%, #000);
+                                background-position: 0 -100%;
+                                background-size: 200% 200%;
+                                ...
+                              }
+                              
+                              .baymax::after {
+                                background: linear-gradient(to bottom, #efefef, #efefef 50%, #000 50%, #000);
+                                background-position: 0 -100%;
+                                background-size: 200% 200%;
+                                ...
+                              }
+                        </code>
+                    </pre>
+                    <p>
+                        Estamos agregando un degradado lineal de fondo, lo hicimos dos veces la altura del contenedor y luego lo colocamos de manera que la mitad
+                        superior quede fuera del contenedor.
+
+                        Con los dos degradados de fondo en su lugar, podemos agregar animación keyframespara controlar el movimiento de los párpados.
+                    </p>
+                    <pre>
+                        <code>
+                            @keyframes blink {
+                                0%, 50% {
+                                  background-position: 0 100%;
+                                }
+                                85%, 95% {
+                                  background-position: 0 75%;
+                                }
+                                100% {
+                                  background-position: 0 100%;
+                                }
+                              }
+                        </code>
+                    </pre>
+                    <p>
+                        La animación keyframeses una forma de describir una serie de fotogramas, utilizando un porcentaje. El porcentaje se relaciona con cuánto tiempo
+                         ha durado la animación. Entonces, un porcentaje del 50% significa que se encuentra en la mitad de la animación.
+
+                        De esta manera, podemos configurar el fondo para que permanezca activo hasta la mitad, luego entre el 50% y el 85%, se mueve hacia abajo y luego 
+                        vuelve al final de la animación.
+
+                        El siguiente paso es decirle a los pseudoelementos que utilicen estos fotogramas clave de animación. Agregue la animationpropiedad a los estilos existentes.
+                    </p>
+                    <pre>
+                        <code>
+                            .baymax::before {
+                                animation: blink 6s infinite;
+                                ...
+                              }
+                              
+                              .baymax::after {
+                                animation: blink 6s 0.1s infinite;
+                                ...
+                              }
+                        </code>
+                    </pre>
+                    <p>
+                        Aquí le hemos dicho al navegador que use la blinkanimación en cada elemento. La duración de la animación se establece en seis segundos y se repetirá infinitamente.
+
+                        Una propiedad adicional está en el segundo ejemplo. El 0.1sdespués 6s le dice al navegador que retrase esa animación en 0,1 segundos. Esto crea el efecto de que el segundo ojo se cierra 
+                        un poco más tarde que el primero. Se suma al efecto cansado y caído y lo hace parecer un poco más humano
+                    </p>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+
+    <div class="baymax"></div>
+
+
+
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>

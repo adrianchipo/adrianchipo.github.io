@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Webpage Title -->
+    <title>Tutorial 3</title>
+    
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/fontawesome-all.css" rel="stylesheet">
+    <link href="css/swiper.css" rel="stylesheet">
+	<link href="css/magnific-popup.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+    <link href="css/zoom.css" rel="stylesheet">
+   
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/favicon.svg">
+</head>
+<body data-spy="scroll" data-target=".fixed-top">
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light">
+        <div class="container">
+            
+            <!-- Text Logo - Use this if you don't have a graphic logo -->
+            <a class="navbar-brand logo-text page-scroll" href="index.html">Diseño Multimedia</a>
+
+            <!-- Image Logo -->
+            <!-- a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a> -->
+
+            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#header">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div> <!-- end of navbar-collapse -->
+        </div> <!-- end of container -->
+    </nav> <!-- end of navbar -->
+    <!-- end of navigation -->
+
+
+    <!-- Header -->
+    <header class="ex-header bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h1>El efecto Ken Burns usando animaciones CSS</h1>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </header> <!-- end of ex-header -->
+    <!-- end of header -->
+
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-fluid mt-5 mb-3" src="images/article-details-large.jpg" alt="alternative">
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+
+    <!-- Basic -->
+    <div class="ex-basic-1 pt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1">
+                    <h2 class="mb-3">¿Que es? </h2>
+                    <p>Es una panorámica y zoom lentos de una imagen estática . Si bien esa descripción suena muy aburrida, 
+                        puede crear muchos efectos geniales con ella, como probablemente haya visto en innumerables documentales,
+                         programas de crímenes y cualquier otra cosa en la que necesite resaltar algo en una imagen estática durante un tiempo.</p>
+                    <h2 class="mb-3">CSS y transformaciones </h2>
+                    <p>En CSS, las estrellas de este efecto son las transformaciones translate3d y scale3d que se encargan de hacer una panorámica 
+                        y hacer zoom en la imagen. La transformación translate3d mueve la imagen hacia la izquierda, derecha, arriba o abajo
+                    </p>
+                    <h2 class="mb-3">Punto de partida </h2>
+                    <p>
+                        Cuando combina ambas transformaciones junto con una animación lenta, tiene el efecto Ken Burns. Comprender esto es la 
+                        parte difícil. La parte fácil es escribir el CSS
+                    </p>
+
+                    <p>
+                        Si desea seguir activamente, cree una nueva página HTML y agregue las siguientes líneas de cosas en ella:
+                    </p>
+                    <pre>
+                        <code>
+                            <head>
+                                <title>The Ken Burns Effect in CSS</title>
+                                <style>
+                                    h1 {
+                                        font-family: monospace;
+                                        font-size: 2.1em;
+                                        color: #3399FF;
+                                    }
+                                    body {
+                                        padding: 10px;
+                                        background-color: #F4F4F4;
+                                    }
+                                    #imageContainer {
+                                        background-color: #333;
+                                        width: 450px;
+                                        height: 300px;
+                                        overflow: hidden;
+                                        border: 2px #333 solid;
+                                    }
+                                </style>
+                            </head>
+                             
+                            <body>
+                             
+                                <h1>The Ken Burns Effect in CSS</h1>
+                             
+                                <div id="imageContainer">
+                                    <img src="//www.kirupa.com/images/example_sm2.jpg">
+                                </div>
+                             
+                                <script src="//www.kirupa.com/prefixfree.min.js"></script>
+                            </body>
+                             
+                        </code>
+                    </pre>
+                    <p>Si obtiene una vista previa de esta página en su navegador, verá una página simple con una imagen 
+                        estacionaria. El único detalle interesante es lo que ves con la propia imagen. Nuestra imagen 
+                        está recortada (también conocida como enmascarada) por los límites de su contenedor principal gracias a la siguiente línea de CSS:</p>
+                    <pre>
+                        <code>
+                            #imageContainer {
+                                background-color: #333;
+                                width: 450px;
+                                height: 300px;
+                                overflow: hidden;
+                                border: 2px #333 solid;
+                            }    
+                        </code>
+                    </pre>
+                    <p>
+                        Esto significa que podemos hacer zoom y desplazar la imagen libremente sin ninguna preocupación en el mundo. La ventana
+                         gráfica es mantenida por el elemento div principal que contiene la imagen.
+                    </p>
+                    <h2 class="mb-3">Agregar la animación CSS </h2>
+                    <p>
+                        Nuestra animación CSS es bastante sencilla. Utilizará diferentes valores de translate3d y scale3d para cambiar nuestra
+                         imagen. Comencemos por traducir eso en valores de fotogramas clave, así que continúe y agregue nuestros fotogramas clave
+                          (llamados kenburns ) hacia la parte inferior de su etiqueta de estilo :
+                    </p>
+
+                    <pre>
+                        <code>
+                            @keyframes kenburns {
+                             0% {
+                               opacity: 0;
+                            }
+                             5% {
+                             opacity: 1;
+                            }
+                              95% {
+                              transform: scale3d(1.5, 1.5, 1.5) translate3d(-190px, -120px, 0px);
+                             animation-timing-function: ease-in;
+                             opacity: 1;
+                             }
+                            100% {
+                                transform: scale3d(2, 2, 2) translate3d(-170px, -100px, 0px);
+                               opacity: 0;
+                            }
+                            }
+                        </code>
+                    </pre>
+                    <p>
+                        La acción real ocurre comienza en la marca del 95%. Preste atención a cómo se ve nuestra declaración de transformación :
+
+                    </p>
+                    
+                    <pre>
+                        <code>
+                            transform: scale3d(1.5, 1.5, 1.5) translate3d(-190px, -120px, 0px);
+                        </code>
+                    </pre>
+                    <p>
+                        Hacemos zoom en la imagen en un 50% usando scale3d , y cambiamos la imagen 190 píxeles horizontalmente y 120 píxeles verticalmente 
+                        usando translate3d . Continuamos más de esto en la marca del 100% también, donde hacemos zoom y desplazamos un poco más para ajustar el efecto.
+
+                        Lo último que queda es definir nuestra animación CSS que vincule nuestros fotogramas clave kenburns con un valor de duración. Agregue las siguientes líneas dentro de 
+                        su etiqueta de estilo justo encima de la declaración de fotogramas clave:
+                    </p>
+                    
+                    <pre>
+                        <code>
+                            #imageContainer img {
+                                animation: kenburns 20s infinite;
+                              }
+                        </code>
+                    </pre>
+                    <p>
+                        EEspecificamos que nuestra animación se ejecutará durante 20 segundos y repetirá los fotogramas clave de kenburns para siempre. Si guarda estos cambios y obtiene una 
+                        vista previa de la página en su navegador, verá el efecto Ken Burns en su pantalla donde la imagen se desplaza lentamente hacia la oveja de aspecto culpable que todas las otras ovejas están mirando.
+                    </p>
+                  
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of ex-basic-1 -->
+    <!-- end of basic -->
+
+    <h1>Efecto Ken Burns Effect en CSS</h1>
+ 
+    <div id="imageContainer">
+        <img src="//www.kirupa.com/images/example_sm2.jpg">
+    </div>
+ 
+    <script src="//www.kirupa.com/prefixfree.min.js"></script>
+
+    
+    	
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+</html>
